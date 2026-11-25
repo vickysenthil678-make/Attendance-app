@@ -1,0 +1,28 @@
+{
+  "name": "attendance-app",
+  "version": "1.0.0",
+  "description": "College Attendance System",
+  "main": "server.js",
+  "scripts": {
+    "start": "npm run dev",
+    "expo": "npm run dev",
+    "dev": "concurrently --kill-others-on-fail -n backend,expo -c \"cyan,magenta\" \"npm run dev:backend\" \"npm run dev:expo\"",
+    "dev:backend": "node scripts/start-backend.js",
+    "dev:expo": "node scripts/start-expo.js",
+    "build:android-apk": "npm run build:android-apk --prefix mobile",
+    "publish:apk": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-apk.ps1",
+    "dev:web": "concurrently --kill-others-on-fail -n backend,expo -c \"cyan,magenta\" \"npm run dev:backend\" \"node scripts/start-expo.js --web\"",
+    "dev:mobile": "npm run dev"
+  },
+  "dependencies": {
+    "exceljs": "^3.4.0",
+    "gridfs-stream": "^1.1.1",
+    "mongoose": "^9.11.4"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
